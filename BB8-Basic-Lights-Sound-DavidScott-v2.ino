@@ -1,19 +1,21 @@
 /*
     ===================================================================================================
     ==================  BB-8 Basic Lights and Sound using Arduino & MP3-FLASH-16P =====================
-    =========================================  v0.05  =================================================
+    =========================================  v0.06  =================================================
     ===================================================================================================
 
-    Versions History
+    Version History
     0.01 - Original Sketch by DavidScott
     0.02 - r0n_dL added annotations & variable for PIN_sound_BUSY as suggested by DavidScott
     0.03 - r0n_dL reassigned pins to align with Padawan control system
          - Changed SoftwareSerial pins (RX/TX) 10/9 to 8/4
     0.04 - Change pinMode for PIN_trigger to INPUT_PULLUP to resolve issue using with Pro Micro
     0.05 - Added support for the BY8301-16P and BY8001-16P sound modules
+    0.06 - Using an updated version of MP3FLASH16P (MP3Flash16Pv2) which now removes static serial
+           mappings out of the .cpp file
+         - Add support to select between using 3 different sound modules by changing 1 variable
 
-    r0n_dL IMPORTANT NOTE & RECOGNITON: This sketch was written by DavidScott. Only thing I did was added 
-      more annotations
+    r0n_dL IMPORTANT NOTE & RECOGNITON: This sketch was written by DavidScott. Thanks for a great base!
 
     // DavidScott's original comment below
     
@@ -28,8 +30,8 @@
 
     REQUIRED Libaries to make this sketch work:
     
-    MP3FLASH16P Library  
-    https://github.com/Critters/MP3FLASH16P
+    MP3Flash16Pv2 Library  
+    https://github.com/r0ndL/MP3Flash16Pv2
     
     BY8x0116P Library
     https://github.com/r0ndL/BY8x01
@@ -138,8 +140,8 @@ SoftwareSerial MP3Serial(8, 4);
   //#include "BY8x0116P.h"
   //BY8x0116P myPlayer; 
 
-  #include "BY8x0116Pv2.h"
-  BY8x0116Pv2 myPlayer(MP3Serial); // Use SWSerial as the serial port
+  //#include "BY8x0116Pv2.h"
+  //BY8x0116Pv2 myPlayer(MP3Serial); // Use SoftwareSerial as the serial port
   
 //#else 
   //settings for MP3-FLASH-16P...
@@ -147,8 +149,8 @@ SoftwareSerial MP3Serial(8, 4);
   //#include "MP3FLASH16P.h"
   //MP3FLASH16P myPlayer;
 
-  //#include "MP3Flash16Pv2.h"
-  //MP3Flash16Pv2 myPlayer(MP3Serial); // Use SWSerial as the serial port
+  #include "MP3Flash16Pv2.h"
+  MP3Flash16Pv2 myPlayer(MP3Serial); // Use SoftwareSerial as the serial port
   
   
 //#endif
