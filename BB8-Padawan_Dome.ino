@@ -125,7 +125,7 @@ FREE
 //        define the audio and use if/else statements.  SOOOO until I get the library issue resolved just
 //        comment out the library not required and the next proceeding line. 
   
-//#define AUDIO1  1   // 1=MP3-FLASH-16P
+#define AUDIO1  1   // 1=MP3-FLASH-16P
                     // 2=BY8001-16P or BY8301-16P
 
                             
@@ -134,26 +134,20 @@ FREE
 #include "SoftwareSerial.h"
 SoftwareSerial MP3Serial(8, 4);
 
-//#if (AUDIO1==2)
-  //settings for BY8001-16P or BY8301-16P module...
-  
-  //#include "BY8x0116P.h"
-  //BY8x0116P myPlayer; 
+#if (AUDIO1==2)
+  //settings for BY8001-16P or BY8301-16P module... 
 
-  //#include "BY8x0116Pv2.h"
-  //BY8x0116Pv2 myPlayer(MP3Serial); // Use SoftwareSerial as the serial port
+  #include "BY8x0116Pv2.h"
+  BY8x0116Pv2 myPlayer(MP3Serial); // Use SoftwareSerial as the serial port
   
-//#else 
+#else 
   //settings for MP3-FLASH-16P...
   
-  //#include "MP3FLASH16P.h"
-  //MP3FLASH16P myPlayer;
-
   #include "MP3Flash16Pv2.h"
   MP3Flash16Pv2 myPlayer(MP3Serial); // Use SoftwareSerial as the serial port
   
   
-//#endif
+#endif
 
 
 // ARDUINO PIN ASSIGNMENTS...
