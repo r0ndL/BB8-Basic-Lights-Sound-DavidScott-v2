@@ -129,7 +129,7 @@ FREE
 // INCLUDE LIBS AND DECLARE VARIABLES...
 
 #include "SoftwareSerial.h"
-SoftwareSerial MP3Serial(8, 4);
+SoftwareSerial MP3Serial(8, 4); // SoftwareSerial port assignments (RX, TX) to communicate with sound module
 
 #if (AUDIO1==2)
   //settings for BY8001-16P or BY8301-16P module... 
