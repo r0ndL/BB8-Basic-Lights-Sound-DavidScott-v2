@@ -175,7 +175,7 @@ void setup()
     pinMode(PIN_trigger, INPUT_PULLUP); // Changed INPUT to INPUT_PULLUP because of issues working with Pro Micro.  
                                         // Change back to INPUT if required
     randomSeed(analogRead(0));
-    //Serial.begin(9600);
+    
 }
 
 int voiceBrightness;
