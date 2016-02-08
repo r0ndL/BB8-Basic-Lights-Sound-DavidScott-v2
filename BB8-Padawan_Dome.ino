@@ -101,7 +101,8 @@ FREE
   TX0
   5 (Digital)
   7 
-  Possibly For WTV020SD-16P
+
+Possibly used for WTV020SD-16P
   WTV1BSY A0
   WTV1CLK A1
   WTV1DAT 2
@@ -123,9 +124,10 @@ FREE
 
 // NOTE:  This sketch currently supports 3 different sound modules (MP3-FLASH-16P, BY8001-16P, BY8301-16P)
   
-#define AUDIO1  1    // 1=MP3-FLASH-16P
+#define AUDIO1  1   // 1=MP3-FLASH-16P
                     // 2=BY8001-16P or BY8301-16P
 
+#define number_of_sounds  32 //enter the # of audio files on sound module
                             
 // INCLUDE LIBS AND DECLARE VARIABLES...
 
@@ -143,8 +145,7 @@ SoftwareSerial MP3Serial(8, 4); // SoftwareSerial port assignments (RX, TX) to c
   
   #include "MP3Flash16Pv2.h"
   MP3Flash16Pv2 myPlayer(MP3Serial); // Use SoftwareSerial as the serial port
-  
-  
+   
 #endif
 
 
@@ -158,14 +159,7 @@ SoftwareSerial MP3Serial(8, 4); // SoftwareSerial port assignments (RX, TX) to c
 #define PIN_trigger       A3 //Connect to Switch
 
 
-// ADDITIONAL SOUND OPTIONS...
-
-#define number_of_sounds  32
-
-//
-//
-//
-
+// Most builders shouldn't have to edit anything below here 
 void setup() 
 {
     MP3Serial.begin(9600);
@@ -179,8 +173,11 @@ void setup()
     
 }
 
+// Integer Assignments for animated LEDs
 int voiceBrightness;
 int pulseBrightness;
+
+
 void loop() {
     // Checking for trigger going LOW
     if(digitalRead(PIN_trigger) == LOW){
