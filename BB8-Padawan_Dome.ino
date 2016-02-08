@@ -44,10 +44,10 @@
     
     1 Arduino Pro Micro
     1 MP3-FLASH-16P MP3 Soundboard
-    1 Red 3mm Flanged LED (Radar Eye)*
+    1 Red 3mm Flanged LED (Radar Eye)
     1 Blue 3mm Flanged LED (Side Logic Display)*
     1 White 3mm Flanged LED (Top Front Logic Display)*
-    1 White 5mm Flanged LED (PSI/Voice LED)*
+    1 White 5mm Flanged LED (PSI/Voice LED)
     1 5v power supply
     2 1K ohm Resistors*
     2 220 ohm Resistors*
@@ -60,8 +60,9 @@
      May want to consider adding a LED to the HP as well which will also require changes to the resistor 
      & wiring
 
-    Example:  2 Front (Top & Bottom) Logic Lenses have 5 round 3mm LEDs each
-              1 Side Logic Lens has 4 round 3mm LEDs
+    Example:  
+    2 Front(Top&Bottom) Logic Lenses have 5 round 3mm LEDs each - (5v to all (+) & 100ohm resistor on each (-) LED lead
+    1 Side Logic Lens has 4 round 3mm LEDs - (5v to all (+) & 100ohm resistor on each (-) LED lead
 
     r0n_dL BASIC WIRING for testing
 
@@ -122,7 +123,7 @@ FREE
 
 // NOTE:  This sketch currently supports 3 different sound modules (MP3-FLASH-16P, BY8001-16P, BY8301-16P)
   
-#define AUDIO1  1   // 1=MP3-FLASH-16P
+#define AUDIO1  1    // 1=MP3-FLASH-16P
                     // 2=BY8001-16P or BY8301-16P
 
                             
@@ -159,7 +160,7 @@ SoftwareSerial MP3Serial(8, 4); // SoftwareSerial port assignments (RX, TX) to c
 
 // ADDITIONAL SOUND OPTIONS...
 
-#define number_of_sounds  5
+#define number_of_sounds  32
 
 //
 //
